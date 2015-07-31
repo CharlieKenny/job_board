@@ -115,6 +115,3 @@ DEPENDENCIES
   rack-flash3
   rspec (>= 3.2.0)
   sinatra
-
-BUNDLED WITH
-   1.10.6
