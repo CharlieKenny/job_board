@@ -15,3 +15,12 @@ DataMapper.auto_upgrade!
     @jobs = Job.all
     erb :index
   end
+
+  get '/jobs/new' do
+    erb :'jobs/new'
+  end
+
+  post '/jobs' do
+    Job.create(employer: params[:employer],role: params[:role],description: params[:description],location: params[:location])
+    redirect to('/')
+  end
