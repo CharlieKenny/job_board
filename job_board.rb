@@ -1,5 +1,5 @@
 require 'sinatra'
-
+require 'json'
 require 'data_mapper'
 
 env = ENV['RACK_ENV'] || 'development'
@@ -10,6 +10,14 @@ require './lib/job'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+before do
+   content_type :json
+   headers 'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
+end
+
+set :protection, false
 
   get '/' do
     @jobs = Job.all
