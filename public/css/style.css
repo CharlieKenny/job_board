@@ -9,13 +9,28 @@ body {
 
 .employerLink {
   background-color: red;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  color: white;
 }
 
 .applicantLink {
   background-color: blue;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  color: white;
 }
 
-a {
+.submitJob {
+  background-color: green;
   text-decoration: none;
   padding: 5px;
   border-radius: 8px;
@@ -29,4 +44,23 @@ h1 {
   border-width: 3px;
   border-style: solid;
   border-color: black;
+}
+
+.title {
+  font-size:50px;
+}
+
+th {
+  font-size: 25px;
+}
+
+table {
+  position: relative;
+  left: 27%;
+  right: 27%;
+}
+
+td {
+  padding-left: 5px;
+  padding-right: 5px;
 }

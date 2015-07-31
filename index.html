@@ -13,15 +13,13 @@
   </head>
   <body ng-controller="jobController">
   <div class="main">
-    <header><h1>Job Board</h1></header>
+    <header><h1 class="title">Job Board</h1></header>
       <h3>I'm an...</h3>
-    <a class="employerLink" href="#/route1">Employer</a>
-    <a class="applicantLink" href="#/route2">Applicant</a>
-
-    <button ng-click="get()">GET REQUEST</button>
-    {{result}}
+    <a class="employerLink" href="#/employer">Employer</a>
+    <a class="applicantLink" href="#/applicant" ng-click="get()">Applicant</a>
 
     <div ng-view></div>
+
   </div>
 
 
