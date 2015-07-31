@@ -1,5 +1,5 @@
 require 'sinatra'
-
+require 'json'
 require 'data_mapper'
 
 env = ENV['RACK_ENV'] || 'development'
@@ -11,16 +11,22 @@ require './lib/job'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-  get '/' do
-    @jobs = Job.all
-    erb :index
+  get '/api/jobs' do
+    jobs = Job.all
+    jobs.to_json
   end
 
-  get '/jobs/new' do
-    erb :'jobs/new'
+  get '/api/jobs/:id' do
+    job = Job.get(params[:id])
+    job.to_json
   end
 
-  post '/jobs' do
-    Job.create(employer: params[:employer],role: params[:role],description: params[:description],location: params[:location])
-    redirect to('/')
+  post '/api/jobs' do
+    job = Job.new
+    job.employer = params[:employer]
+    job.role = params[:role]
+    job.description = params[:description]
+    job.location = params[:location]
+    job.save
   end
+
